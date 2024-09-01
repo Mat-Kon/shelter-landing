@@ -1,5 +1,6 @@
 window.onload = () => {
     openedClosedMenu();
+    changePageNumber();
 }
 //Hamburger menu
 const openedClosedMenu = () => {
@@ -21,6 +22,7 @@ const openedClosedMenu = () => {
 
 //Popups animal card
 const getNameAnimal = (card) => {
+    console.log(card)
     return card.currentTarget.children[1].textContent.toLowerCase();
 }
 
@@ -83,67 +85,89 @@ async function getPetsInfo(name) {
 }
 getPetsInfo();
 
-//Slider
-const sliderCards = document.querySelector('.friends-slider__cards');
-sliderCards.style.transform = 'translate3d(0px, 0px, 0px)';
-let index = 0;
+//Pagination
 
-document.querySelector('.friends-slider__buttons').addEventListener('click', (event) => {
+const firstPage = document.querySelector('.navigation__two-prev'),
+    prevPage = document.querySelector('.navigation__prev'),
+    nextPage = document.querySelector('.navigation__next'),
+    lastPage = document.querySelector('.navigation__two-next'),
+    numberPage = document.querySelector('.page-number');
+    let page = 1;
+    numberPage.textContent = page;
 
-    if (event.target.classList.contains('friends-slider__next')) {
-        nextSlide()
-        getStepSlide(index, getCardWidth());
+    window.onresize = () => {
+        page = 1;
+        numberPage.textContent = page;
+        buttonChangState();
     }
-    if (event.target.classList.contains('friends-slider__prev')) {
-        prevSlide()
-        getStepSlide(index, getCardWidth());
-    }
-});
 
-function getStepSlide (step, Width) {
-    sliderCards.style.transform = `translate3d(-${step * Width}px, 0px, 0px)`;
-}
-
-function getCardWidth () {
-    let cardWidth = document.querySelector('.card').offsetWidth;
-    let widthScreen = document.documentElement.clientWidth;
-
-    if (widthScreen > 768) {
-        cardWidth = cardWidth + 90;
-    } else if (widthScreen <= 768 && widthScreen > 500) {
-        cardWidth = cardWidth + 45;
-    }
-    return cardWidth
-}
-
-const nextSlide = () => {
-    let widthScreen = document.documentElement.clientWidth;
+const changeCards = () => {
+    const pageContent = document.querySelector('.card-container');
     const cards = document.querySelectorAll('.card');
 
-    if (widthScreen > 768) {
-        index = index + 3;
-    } else if (widthScreen <= 768 && widthScreen > 500) {
-        index = index + 2;
-    } else if (widthScreen <= 500) {
-        index++;
-    }
-    if (index > cards.length-1)  {
-        index = 0;
+    for (let i = 0; i < cards.length; i++) {
+        pageContent.insertBefore(cards[i],cards[Math.floor(Math.random() * 8)])
     }
 }
 
-function prevSlide () {
+function changePageNumber () {
+    firstPage.addEventListener('click', (event) => {
+        page = 1
+        numberPage.textContent = page;
+        buttonChangState();
+        changeCards();
+    });
+    nextPage.addEventListener('click', (event) => {
+        page++
+        if (page >= getMaxPagNumber()) {
+            page = getMaxPagNumber();
+            }
+        numberPage.textContent = page;
+        buttonChangState();
+        changeCards();
+    });
+    lastPage.addEventListener('click', (event) => {
+        page = getMaxPagNumber()
+        numberPage.textContent = page;
+        buttonChangState();
+        changeCards();
+    })
+    prevPage.addEventListener('click', (event) => {
+        page--
+        if (page <= 1) {
+            page = 1;
+        }
+        numberPage.textContent = page;
+        buttonChangState();
+        changeCards();
+    })
+}
+
+const buttonChangState = () => {
+    if (page > 1) {
+        firstPage.classList.add('active');
+        prevPage.classList.add('active');
+    } else if (page === 1) {
+        firstPage.classList.remove('active');
+        prevPage.classList.remove('active');
+    }
+    if (page === getMaxPagNumber()) {
+        lastPage.classList.remove('active');
+        nextPage.classList.remove('active');
+    } else {
+        lastPage.classList.add('active');
+        nextPage.classList.add('active');
+    }
+}
+
+function getMaxPagNumber () {
     let widthScreen = document.documentElement.clientWidth;
-    const cards = document.querySelectorAll('.card');
 
     if (widthScreen > 768) {
-        index = index - 3;
+        return 6;
     } else if (widthScreen <= 768 && widthScreen > 500) {
-        index = index - 2;
+        return 8;
     } else if (widthScreen <= 500) {
-        index--;
-    }
-    if (index < 0)  {
-        index = cards.length-2;
+        return 16
     }
 }
