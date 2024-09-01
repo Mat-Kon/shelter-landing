@@ -1,0 +1,312 @@
+.our-friends {
+    background-color: $color-white-grey;
+
+    button {
+        font-size: 1.7rem;
+        line-height: 130%;
+        letter-spacing: 0.06em;
+    }
+}
+.our-friends__heading {
+    width: 40rem;
+    text-align: center;
+
+    @include media-mobile {
+        width: 100%;
+    }
+}
+
+.friends-slider {
+    position: relative;
+    width: 100%;
+    height: 43.5rem;
+    @include flex ($direction: row, $justify: center);
+    margin: 6rem 0;
+
+    @include media-tablet {
+        width: 92%;
+    }
+    @include media-mobile {
+        height: 100%;
+        flex-direction: column-reverse;
+        align-items: center;
+        margin: 42px 0 0;
+    }
+}
+.friends-slider__contain {
+    width: 88%;
+    overflow: hidden;
+    overflow-x: scroll;
+    &::-webkit-scrollbar {
+        width: 0;
+    }
+    @include media-tablet {
+        width: 83%;
+    }
+}
+
+.friends-slider__buttons {
+    top: 44%;
+    @include flex ($direction: row, $justify: space-between);
+    @include media-mobile {
+        width: 100%;
+        margin: 20px 0 42px;
+        justify-content: space-around;
+    }
+}
+
+.slider__buttons {
+    width: 5.2rem;
+    height: 5.2rem;
+
+    background-color: transparent;
+    background-image: url('../../assets/svg/button_arrow.svg');
+    @include background (no-repeat, 100% 100%);
+    border: 0;
+    border-radius: 100px;
+    @extend %transition;
+
+    &:hover {
+        cursor: pointer;
+        background-color: $color-primary;
+    }
+
+    &:active {
+        opacity: 0.5;
+    }
+}
+
+.friends-slider__next {
+    position: absolute;
+    right: 0;
+    top: 44%;
+    transform: rotate(180deg);
+    @include media-mobile {
+        position: relative;
+        top: 0;
+    }
+}
+
+.friends-slider__prev {
+    position: absolute;
+    left: 0;
+    top: 44%;
+    @include media-mobile {
+        position: relative;
+        top: 0;
+    }
+}
+
+.friends-slider__cards {
+    display: flex;
+    width: 91%;
+    margin-left: 35px;
+    transition: 1s;
+    @include media-tablet {
+        width: 70%;
+        margin-left: 0;
+    }
+    @include media-mobile {
+        width: 100%;
+    }
+}
+
+.card {
+    @include flex ($direction: column, $justify: normal, $items: center);
+    flex: 1 0 28%;
+    margin-right: 90px;
+    text-align: center;
+
+    background-color: $color-white;
+    border-radius: 9px;
+    @extend %transition;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &:active {
+        opacity: 0.5;
+    }
+
+    &:hover .card__buttons {
+        background-color: $color-primary-light;
+        border: 2px solid $color-primary-light;
+    }
+    @include media-tablet {
+        flex: 1 0 65%;
+        width: 40%;
+        margin: 0 40px 0 5px;
+    }
+    @include media-mobile {
+        margin: 0;
+        width: 100%;
+        flex: 1 0 100%;
+    }
+}
+
+.card__img {
+    width: 100%;
+    height: 27rem;
+
+    background-color: $color-white;
+    @include background (no-repeat, 100% 100%);
+}
+
+.card__name {
+    margin: 3rem 0;
+    font-family: 'Georgia';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 2rem;
+    line-height: 2.3rem;
+    letter-spacing: 0.06em;
+    color: $color-heading;
+}
+
+.card__buttons {
+    width: 70%;
+    background-color: transparent;
+    border: 2px solid $color-primary;
+    padding: 1.3rem 4.1rem;
+    margin-bottom: 30px;
+    @extend %transition;
+    @include media-mobile {
+        width: 82%;
+    }
+}
+
+.our-friends__button {
+    background-color: $color-primary;
+    border: 0;
+
+    &:hover {
+        background-color: $color-primary-light;
+    }
+}
+
+.katrine {
+    background-image: url('../../assets/img/our-pets/katrine.png');
+}
+
+.jennifer {
+    background-image: url('../../assets/img/our-pets/jennifer.png');
+}
+
+.woody {
+    background-image: url('../../assets/img/our-pets/woody.png');
+}
+
+.sophia {
+    background-image: url('../../assets/img/our-pets/sophia.png');
+}
+
+.timmy {
+    background-image: url('../../assets/img/our-pets/timmy.png');
+}
+
+.charly {
+    background-image: url('../../assets/img/our-pets/charly.png');
+}
+
+.scarlett {
+    background-image: url('../../assets/img/our-pets/scarlett.png');
+}
+
+.freddie {
+    background-image: url('../../assets/img/our-pets/freddie.png');
+}
+
+//Page pets
+.card-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-content: space-between;
+    grid-row-gap: 30px;
+    grid-column-gap: 40px;
+    padding: 60px 0;
+
+    background-color: $color-white-grey;
+
+    .card {
+        margin: 0;
+        width: 100%;
+        &:nth-child(3) {
+            display: flex;
+        }
+        @include media-tablet {
+            &:nth-child(n + 7) {
+                display: none;
+            }
+        }
+        @include media-mobile {
+            &:nth-child(-n + 3) {
+                display: flex;
+            }
+        }
+    }
+    @include media-tablet {
+        width: 82%;
+        grid-template-columns: repeat(2, 1fr);
+        padding: 30px 0 40px;
+    }
+    .card__buttons {
+        @include media-tablet {
+            width: 70%;
+        }
+    }
+    @include media-mobile {
+        width: 90%;
+        grid-template-columns: 1fr;
+        padding: 40px 0 45px;
+    }
+}
+
+.navigation {
+    width: 34rem;
+    @include flex ($direction: row, $justify: space-between, $items: center);
+    @include media-mobile {
+        width: 100%;
+    }
+}
+
+.navigation__buttons {
+    width: 5.2rem;
+    height: 5.2rem;
+
+    border-radius: 100px;
+    @extend %transition;
+}
+
+.navigation__prev,
+.navigation__two-prev,
+.navigation__next,
+.navigation__two-next {
+    border: 2px solid $color-menu;
+    background-color: transparent;
+    color: $color-menu;
+    &.active{
+        border: 2px solid $color-primary;
+        background-color: transparent;
+        color: #000000;
+        &:hover {
+            cursor: pointer;
+            border: 2px solid $color-primary-light;
+            background-color: $color-primary-light;
+        }
+        &:active {
+            opacity: 0.5;
+        }
+    }
+}
+
+.navigation__page-number {
+    width: 5.2rem;
+    height: 5.2rem;
+    @include flex ($direction: row, $justify: center, $items: center);
+
+    color: $color-btn-content;
+    background-color: $color-primary;
+    border-radius: 100px;
+}

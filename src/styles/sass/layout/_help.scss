@@ -1,0 +1,99 @@
+.help__heading {
+    width: 31.8rem;
+    margin-bottom: 6rem;
+    text-align: center;
+    @include media-mobile {
+        width: 80%;
+        margin-bottom: 42px;
+    }
+}
+
+.list {
+    width: 100%;
+    height: 28.1rem;
+    @include flex ($direction: row, $justify: center);
+    align-content: space-between;
+    flex-wrap: wrap;
+
+    @include media-tablet {
+        width: 82%;
+        height: 45rem;
+        justify-content: space-between;
+    }
+    @include media-mobile {
+        width: 90%;
+        height: 55.5rem;
+    }
+}
+
+.list__item {
+    height: 11.3rem;
+    @include flex ($direction: column, $justify: space-between, $items: center);
+    margin: 0 6rem;
+    @extend %transition;
+
+    &:hover {
+        cursor: pointer;
+        opacity: 0.5;
+    }
+
+    &:active {
+        opacity: 0.9;
+    }
+
+    @include media-tablet {
+        width: 27%;
+        margin: 0;
+
+    }
+    @include media-mobile {
+        width: 13rem;
+        height: 8.7rem;
+    }
+}
+
+.list__icon {
+    width: 6rem;
+    height: 6rem;
+    @include background (no-repeat, 100% 100%);
+    @include media-mobile {
+        width: 5rem;
+        height: 5rem;
+    }
+}
+
+.list__food {
+    background-image: url('../../assets/svg/help_section/icon-pet-food.svg');
+}
+
+.list__transportation {
+    background-image: url('../../assets/svg/help_section/icon-transportation.svg');
+}
+
+.list__toys {
+    background-image: url('../../assets/svg/help_section/icon-toys.svg');
+}
+
+.list__cups {
+    background-image: url('../../assets/svg/help_section/icon-bowls-and-cups.svg');
+}
+
+.list__shampoos {
+    background-image: url('../../assets/svg/help_section/icon-shampoos.svg');
+}
+
+.list__vitamins {
+    background-image: url('../../assets/svg/help_section/icon-vitamins.svg');
+}
+
+.list__medicines {
+    background-image: url('../../assets/svg/help_section/icon-medicines.svg');
+}
+
+.list__collars {
+    background-image: url('../../assets/svg/help_section/icon-collars-leashes.svg');
+}
+
+.list__sleeping-areas {
+    background-image: url('../../assets/svg/help_section/icon-sleeping-area.svg');
+}

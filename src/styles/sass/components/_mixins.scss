@@ -1,0 +1,27 @@
+@mixin background ($repeat, $size) {
+    background-repeat: $repeat;
+    background-size: $size;
+}
+
+@mixin flex ($direction: row, $justify: normal, $items: normal) {
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $items;
+}
+
+@mixin media-laptop {
+    @media screen and (max-width: $content-with) { @content; }
+}
+
+@mixin media-tablet {
+    @media screen and (max-width: $tablet-with), (max-width: 1205px) { @content; }
+}
+
+@mixin media-mobile {
+    @media screen and (max-width: $mobile-with), (max-width: 500px){ @content; }
+}
+
+@mixin media-small-mobile {
+    @media screen and (max-width: $small-mobile-with) { @content; }
+}

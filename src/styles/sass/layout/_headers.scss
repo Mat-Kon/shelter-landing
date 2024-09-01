@@ -1,0 +1,216 @@
+.logo {
+    text-decoration: none;
+    &-contain {
+        @include flex ($direction: column, $items: center);
+        @extend %transition;
+
+        &:hover {
+            opacity: 0.5;
+        }
+        &:active {
+            opacity: 0.2;
+        }
+    }
+}
+
+.logo__name {
+    margin-bottom: 10px;
+}
+
+.logo__text {
+    font-size: 1.3rem;
+    line-height: 1.5rem;
+    letter-spacing: 0.1em;
+    color: $color-white;
+}
+
+.menu {
+    display: flex;
+
+    padding: 0;
+
+    font-size: 1.5rem;
+    line-height: 160%;
+    list-style-type: none;
+    @media (max-width: 767px) {
+        align-items: center;
+        margin: auto;
+        font-size: 3.2rem;
+    }
+}
+
+.menu__link {
+    text-decoration: none;
+    color: $color-menu;
+    margin-left: 36px;
+    @extend %transition;
+
+    &:hover {
+        padding-bottom: 5px;
+        color: $color-menu-hover;
+        border-bottom: 3px solid $color-primary;
+    }
+
+    &:active {
+        opacity: 0.5;
+    }
+    @media (max-width: 766px) {
+        margin: auto;
+        &:hover{
+            border-bottom: 0;
+            color: $color-menu;
+        }
+    }
+}
+
+.menu__about {
+    a {
+        padding-bottom: 5px;
+        color: $color-menu-hover;
+        border-bottom: 3px solid $color-primary;
+
+        &:hover {
+            cursor: default;
+        }
+    }
+}
+
+.header-not-only {
+    background-image: url(../../assets/img/main-img/start-screen-gradient-background.png);
+    @include background (no-repeat, 100% 100%);
+}
+
+//Page pets
+
+.header-pets {
+    .hamburger__line {
+        background-color: $color-heading;
+    }
+    @media (max-width: 766px){
+        .header__menu.active {
+            background-color: $color-white;
+            box-shadow: -140px -2px 5000px 100px $color-heading;
+        }
+    }
+}
+.logo-contain-pets {
+    h1 {
+        color: $color-heading;
+    }
+
+    .logo__text {
+        color: $color-heading;
+    }
+
+
+}
+
+.menu-pets {
+    .menu__link {
+        color: $color-heading;
+
+        &:hover {
+            padding-bottom: 5px;
+            color: $color-btn-content;
+            border-bottom: 3px solid $color-primary;
+        }
+
+        &:active {
+            opacity: 0.5;
+        }
+        @media (max-width: 766px) {
+            &:hover {
+                color: $color-heading;
+                border-bottom: 0;
+            }
+        }
+    }
+
+    .menu__about {
+        a {
+            padding-bottom: 1px;
+            color: $color-heading;
+            border-bottom: 3px solid $color-primary;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+    }
+
+    .menu__about {
+        a{
+            padding: 0;
+            border-bottom: 0;
+        }
+    }
+
+    .menu__our-pets {
+        a {
+            cursor: default;
+            padding-bottom: 1px;
+            color: $color-btn-content;
+            border-bottom: 3px solid $color-primary;
+
+            &:hover {
+                padding-bottom: 1px;
+            }
+        }
+    }
+}
+
+//Hamburger menu
+.hamburger {
+    width: 30px;
+    height: 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: 1s;
+    @media screen and (min-width: 767px) {
+        display: none;
+    }
+}
+
+.hamburger.active {
+    z-index: 1;
+    position: fixed;
+    top: 49px;
+    right: 20px;
+    transform: rotate(90deg);
+}
+
+.hamburger__line {
+    width: 100%;
+    height: 3px;
+    display: inline-block;
+    background-color: $color-primary;
+
+}
+
+.header__menu {
+    &.active {
+        z-index: 1;
+        transform: translateY(0);
+        @include media-small-mobile {
+            width: 100%;
+        }
+    }
+
+    @media screen and (max-width: 767px) {
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 80%;
+        height: 100%;
+        background: $color-btn-content;
+        transform: translateX(100%);
+        transition: 1s;
+        .menu {
+            flex-direction: column;
+        }
+    }
+}

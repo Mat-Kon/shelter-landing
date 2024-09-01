@@ -1,0 +1,121 @@
+.in-addition {
+    background-color: $color-white-grey;
+}
+
+.donation {
+    width: 76%;
+    @include flex ($direction: row, $justify: space-between);
+    margin: auto;
+    padding: 8rem 0 8.8rem;
+    h3 {
+        width: 30rem;
+    }
+    h5 {
+        padding: 2rem 0 1.9rem;
+    }
+    p {
+        width: 38rem;
+        padding-top: 7px;
+
+        font-style: italic;
+        font-weight: 400;
+        font-size: 1.2rem;
+        line-height: 150%;
+
+        color: $color-info-content;
+    }
+    a {
+        text-decoration: none;
+        &:hover .credit-card{
+            background-color: $color-primary-light;
+        }
+        &:active {
+            opacity: 0.5;
+        }
+    }
+
+    @include media-tablet {
+        width: 90%;
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    @include media-mobile {
+        width: 94%;
+        align-items: center;
+        padding: 42px 0;
+        p {
+            width: 100%;
+            text-align: justify;
+        }
+        h3 {
+            width: 75%;
+            margin: auto;
+            text-align: center;
+        }
+        h5 {
+            padding: 19px 0 21px;
+            text-align: center;
+        }
+    }
+}
+
+.donation__img {
+    width: 55%;
+    height: 26.1rem;
+    margin: 1rem 0rem;
+
+    background-image: url('../../assets/img/main-img/donation_dog.png');
+    @include background (no-repeat, 100% 100%);
+
+    @include media-tablet {
+        width: 73%;
+    }
+    @include media-mobile {
+        width: 87%;
+        height: 13.5rem;
+        margin: 0;
+    }
+}
+
+.donation__content {
+    margin-right: -2px;
+
+    @include media-tablet {
+        padding-bottom: 40px;
+    }
+    @include media-mobile {
+        width: 93%;
+        padding-bottom: 30px;
+    }
+}
+
+.credit-card {
+    width: 34.9rem;
+    height: 4.3rem;
+    @include flex ($direction: row, $justify: center, $items: center);
+
+    background-color: $color-primary;
+    border-radius: 9px;
+    @extend %transition;
+    @include media-mobile {
+        width: 100%;
+    }
+}
+
+.credit-card__content {
+    @include flex ($direction: row, $justify: space-between);
+    margin: auto;
+    @include media-mobile {
+        align-items: center;
+    }
+}
+
+.credit-card__logo {
+    width: 3rem;
+    height: 2.3rem;
+    margin-right: 15px;
+
+    background-image: url('../../assets/svg/credit-card.svg');
+    @include background (no-repeat, 100% 100%);
+}

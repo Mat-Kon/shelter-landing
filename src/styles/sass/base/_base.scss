@@ -1,0 +1,76 @@
+html {
+    font-size: 10px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    &.open-popup {
+        overflow-y: hidden;
+    }
+    @include media-tablet {
+        &.open-burger {
+            overflow-y: hidden;
+        }
+    }
+}
+
+h1, h2, h3, h4, h5 {
+    margin: 0;
+
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-style: normal;
+    font-weight: 400;
+
+    color: $color-heading;
+}
+
+h1, h3, h4, h5 {
+    letter-spacing: 0.06em;
+}
+h1 {
+    font-size: 3.2rem;
+    line-height: 110%;
+    color: $color-primary;
+}
+h2 {
+    font-size: 4.4rem;
+    line-height: 130%;
+    @include media-mobile {
+        font-size: 2.5rem;
+    }
+}
+
+h3 {
+    font-size: 3.5rem;
+    line-height: 130%;
+    @include media-mobile {
+        font-size: 2.5rem;
+    }
+}
+h4 {
+    font-size: 2rem;
+    line-height: 115%;
+    @include media-mobile {
+        font-size: 1.5rem;
+        line-height: 110%;
+    }
+}
+h5 {
+    font-size: 1.5rem;
+    line-height: 110%;
+    @include media-mobile {
+        line-height: 160%;
+        letter-spacing: normal;
+    }
+
+}
+
+button {
+    font-family: 'Georgia';
+    font-style: normal;
+    font-weight: 400;
+
+    color: $color-btn-content;
+}

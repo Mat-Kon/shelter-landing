@@ -1,0 +1,132 @@
+.footer {
+    background-image: url('../../assets/img/main-img/footer-gradient-background.png');
+    @include background (no-repeat, 100% 100%);
+    h3 {
+        color: $color-white;
+    }
+    h4 {
+        color: $color-primary;
+    }
+    a {
+        text-decoration: none;
+        @extend %transition;
+        &:hover {
+            opacity: 0.5;
+        }
+        &:active {
+            opacity: 0.1;
+        }
+    }
+    @include media-mobile {
+        h3 {
+            text-align: center;
+        }
+        h4 {
+            font-size: 2rem;
+            line-height: 115%;
+        }
+    }
+}
+
+.contacts {
+    width: 28.8rem;
+    @include flex ($direction: column);
+    padding: 1.6rem 0 6rem;
+
+    @include media-tablet {
+        padding: 1.6rem 9px 6rem;
+    }
+    @include media-mobile {
+        width: 100%;
+        padding: 15px 0 40px;
+    }
+}
+
+.contacts__icons {
+    width: 4rem;
+    height: 3.2rem;
+    @include background (no-repeat, 100% 100%);
+}
+
+.contacts__mail {
+    width: 25.1rem;
+    @include flex ($direction: row, $justify: space-between, $items: center);
+    margin: 4rem 0;
+    @include media-mobile {
+        margin: 4rem auto;
+    }
+}
+
+.contacts__mail-icon {
+    background-image: url('../../assets/svg/icon-email.svg');
+}
+
+.contacts__phone {
+    width: 23.9rem;
+    @include flex ($direction: row, $justify: space-between, $items: center);
+    @include media-mobile {
+        margin: auto;
+    }
+}
+
+.contacts__phone-icon {
+    background-image: url('../../assets/svg/icon-phone.svg');
+}
+
+.locations {
+    width: 30.2rem;
+    @include flex ($direction: column);
+    padding: 1.6rem 0.9rem 6rem 0;
+
+    h4 {
+        width: 26rem;
+    }
+    @include media-mobile {
+        width: 100%;
+        align-items: center;
+        padding: 0 0 40px;
+        h3 {
+            width: 80%;
+        }
+    }
+}
+
+.locations__icon {
+    width: 2.2rem;
+    height: 3.2rem;
+
+    background-image: url('../../assets/svg/icon-marker.svg');
+    @include background (no-repeat, 100% 100%);
+}
+
+.location__boston {
+    @include flex ($direction: row, $justify: space-between, $items: center);
+    margin: 32px 0 33px;
+    @include media-mobile {
+        width: 100%;
+        margin: 40px 0 37px;
+    }
+}
+
+.location__london {
+    @include flex ($direction: row, $justify: space-between, $items: center);
+    @include media-mobile {
+        width: 100%;
+    }
+}
+
+.footer__img {
+    width: 25%;
+    height: 31rem;
+
+    background-image: url('../../assets/img/main-img/footer_dog.png');
+    @include background (no-repeat, 100% 100%);
+
+    @include media-tablet {
+        width: 40%;
+    }
+    @include media-mobile {
+        width: 87%;
+        height: 26.9rem;
+    }
+}

@@ -1,0 +1,15 @@
+.buttons {
+    padding: 1.5rem 4.5rem;
+    gap: 1rem;
+    border-radius: 10rem;
+
+    @extend %transition;
+
+    &:hover {
+        cursor: pointer;
+    }
+
+    &:active {
+        opacity: 0.5;
+    }
+}

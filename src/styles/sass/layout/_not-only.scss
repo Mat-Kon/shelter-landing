@@ -1,0 +1,68 @@
+.not-only_button {
+    font-size: 17px;
+    line-height: 130%;
+    letter-spacing: 0.06em;
+    border: 0;
+    background-color: $color-primary;
+    &:hover {
+        background-color: $color-primary-light;
+    }
+}
+.not-only__content {
+    width: 46rem;
+    margin: 163px 0;
+    h2 {
+        color: $color-white;
+        width: 31rem;
+    }
+    p {
+        font-size: 15px;
+        line-height: 160%;
+        margin: 4.2rem 0;
+        color: $color-menu;
+    }
+    @include media-tablet {
+        width: 62%;
+        margin-top: 0;
+        margin-bottom: 100px;
+        form {
+            display: flex;
+            justify-content: center;
+        }
+    }
+    @include media-mobile {
+        width: 100%;
+        text-align: center;
+        margin-bottom: 105px;
+        h2 {
+            width: 75%;
+            margin: auto;
+            letter-spacing: 0.06em;
+        }
+    }
+}
+
+.not-only__img {
+    width: 58%;
+    height: 72.8rem;
+
+    background-image: url('../../assets/img/main-img/puppy.png');
+    @include background (no-repeat, 100% 100%);
+
+    @include media-tablet {
+        position: relative;
+        left: 70px;
+        width: 78%;
+        height: 59.1rem;
+    }
+
+    @media screen and (max-width: 600px) {
+        left:10px
+    }
+
+    @include media-mobile {
+        left: 20px;
+        width: 88%;
+        height: 27.2rem;
+    }
+}

@@ -1,0 +1,123 @@
+.wrapper {
+    max-width: $content-with;
+    margin: auto;
+    @include media-tablet {
+        max-width: 100%
+    }
+    @include media-mobile {
+        margin: 0;
+    }
+}
+
+.header__wrapper{
+    display: flex;
+    justify-content: space-between;
+    padding: 3rem 0 9rem;
+    @include media-laptop {
+        padding: 0 10px;
+    }
+    @include media-tablet {
+        padding: 30px 30px 60px;
+    }
+    @include media-mobile {
+        align-items: center;
+        padding: 30px 20px 60px;
+    }
+}
+
+.not-only__wrapper {
+    display: flex;
+    justify-content: space-between;
+
+    @include media-laptop {
+        padding: 0 10px;
+    }
+    @include media-tablet {
+        flex-direction: column;
+        align-items: center;
+    }
+    @include media-mobile {
+        align-items: center;
+    }
+}
+
+.about__wrapper {
+    display: flex;
+    padding: 8rem 0 10rem;
+
+    @include media-laptop {
+        flex-direction: column-reverse;
+        width: 60%;
+    }
+    @include media-mobile {
+        align-items: center;
+        padding: 42px 0;
+        width: 100%;
+    }
+}
+
+.our-friends__wrapper {
+    @include flex ($direction: column, $items: center);
+    padding: 8rem 0 10.5rem;
+    @include media-mobile {
+        padding: 42px 10px;
+    }
+}
+
+.help__wrapper {
+    @include flex ($direction: column, $items: center);
+    padding: 7.3rem 0 10rem;
+    @include media-mobile {
+        padding: 42px 0;
+    }
+}
+
+.footer__wrapper {
+    @include flex ($direction: row, $justify: space-between);
+    padding-top: 40px;
+    @include media-laptop {
+        padding: 0 10px;
+    }
+
+    @include media-tablet {
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        padding-top: 15px;
+    }
+
+    @media (max-width: 700px) {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+//Page pets
+.header-pets__wrapper {
+    padding: 3rem 0 3.7rem;
+    @include media-laptop {
+        padding: 0 10px;
+    }
+    @include media-tablet {
+        padding: 30px 30px 30px;
+        align-items: center;
+    }
+    @include media-mobile {
+        padding: 30px 20px 30px;
+    }
+}
+.our-friends-pets__wrapper {
+    @include flex ($direction: column, $items: center);
+    padding: 7.3rem 0 10rem;
+    @include media-laptop {
+        padding: 0 10px;
+    }
+    @include media-tablet {
+        width: 92%;
+        padding: 80px 0 76px;
+    }
+    @include media-mobile {
+        width: 94%;
+        padding: 42px 0;
+        margin: auto;
+    }
+}

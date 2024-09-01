@@ -1,0 +1,159 @@
+@keyframes zoom {
+    from {
+        transform: scale(0.8);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+.modal {
+    position: fixed;
+    top: 0;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    min-height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    & h3, h4, h5 {
+        color: #000000;
+    }
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal__contain {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 59%;
+    height: 520px;
+    animation: zoom;
+    animation-duration: 1s;
+
+    @include media-tablet {
+        width: 90%;
+        height: 400px;
+    }
+    @include media-mobile {
+        width: 85%;
+        height: 450px;
+        align-items: center;
+    }
+}
+
+.modal__close-btn {
+    position: absolute;
+    right: 0;
+    width: 52px;
+    height: 52px;
+    background-color: transparent;
+    border: 2px solid $color-primary;
+    border-radius: 100px;
+    transition: 1s;
+    &:hover {
+        cursor: pointer;
+        background-color: $color-primary;
+    }
+    &:active {
+        opacity: 0.5;
+    }
+    @include media-mobile {
+        right: -20px;
+    }
+}
+
+.animal-content {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    width: 94%;
+    border-radius: 9px;
+    background-color: $color-menu-hover;
+    @include media-tablet {
+        width: 91%;
+    }
+    @include media-mobile {
+        width: 88%;
+    }
+}
+
+.animal__imag {
+    width: 57%;
+    min-height: 100%;
+    border-radius: 9px 0px 0px 9px;
+    @include media-mobile {
+        display: none;
+    }
+}
+
+.animal__text {
+    display: flex;
+    flex-direction: column;
+    width: 351px;
+    padding: 50px 20px 0;
+    @include media-tablet {
+        padding: 10px 9px;
+        width: 92%;
+    }
+}
+
+.animal__name {
+    margin-bottom: 10px;
+    @include media-mobile {
+        text-align: center;
+    }
+}
+
+.animal__type {
+    @include media-mobile {
+        text-align: center;
+        font-size: 2rem;
+        line-height: 115%;
+    }
+}
+
+.animal__description {
+    margin: 40px 0;
+    @include media-tablet {
+        margin: 20px 0;
+        font-size: 1.3rem;
+    }
+    @include media-mobile {
+        text-align: justify;
+    }
+}
+
+.animal-addition {
+    padding-left: 10px;
+    & h5 {
+        font-weight: 700;
+    }
+    & li {
+        margin: 10px 0;
+        color: $color-primary;
+        @include media-mobile {
+            margin: 0;
+        }
+    }
+    & span {
+        font-family: Georgia;
+        font-size: 15px;
+        font-weight: 400;
+        line-height: 16.5px;
+        letter-spacing: 0.06em;
+        text-align: left;
+        color: #000000;
+    }
+    @include media-tablet {
+        margin: 0;
+    }
+}
+
+.animal-addition__item {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
